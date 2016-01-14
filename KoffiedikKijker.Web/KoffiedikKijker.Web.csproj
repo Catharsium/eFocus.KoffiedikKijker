@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="font\MarselisSlabWeb.woff" />
     <None Include="Properties\PublishProfiles\koffiedikkijker - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\koffiedikkijker - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
