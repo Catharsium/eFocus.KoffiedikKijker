@@ -57,6 +57,62 @@
             float: left;
             margin-right: 3px;
         }
+
+        /* custom file upload */
+
+        .custom-file-upload-hidden {
+            display: none;
+            visibility: hidden;
+            position: absolute;
+            left: -9999px;
+        }
+        .custom-file-upload {
+            display: block;
+            width: auto;
+            font-size: 16px;
+            margin-top: 30px;
+            //border: 1px solid #ccc;
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
+        .file-upload-wrapper {
+            position: relative; 
+            margin-bottom: 5px;
+            //border: 1px solid #ccc;
+        }
+        .file-upload-input {
+            width: $file-upload-size;
+            color: #fff;
+            font-size: 16px;
+            padding: 11px 17px; 
+            border: none;
+            background-color: $file-upload-color; 
+            @include transition(all 0.2s ease-in); 
+            float: left; /* IE 9 Fix */
+            &:hover, &:focus { 
+                background-color: darken($file-upload-color, 5);
+                outline: none; 
+            }
+        }
+        .file-upload-button {
+            cursor: pointer; 
+            display: inline-block; 
+            color: #fff;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 11px 20px; 
+            border: none;
+            margin-left: -1px;  
+            background-color: darken($file-upload-color, 10); 
+            float: left; /* IE 9 Fix */
+            @include transition(all 0.2s ease-in);
+            &:hover {
+                background-color: darken($file-upload-color, 20);
+            }
+        }
     </style>
 </head>
 
@@ -72,7 +128,9 @@
             <li>maak een foto van jou residu</li>
             <li>Zie je toekomst en verdien prijzen</li>
         </ol>
-        <input type="file" capture="camera" accept="image/*" id="takePictureField">
+        <div class="custom-file-upload">
+            <input type="file" capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple />
+        </div>
     </div>
 
     <div class="loader" style="display: none;"><h2>Scanning...</h2></div>
@@ -105,7 +163,83 @@
 
         function loadResultPage() {
             location.href = "/quote.html";
-        }
+        };
+
+        (function ($) {
+
+            var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
+                isIE = /msie/i.test(navigator.userAgent);
+
+            $.fn.customFile = function () {
+
+                return this.each(function () {
+
+                    var $file = $(this).addClass('custom-file-upload-hidden'),
+                        $wrap = $('<div class="file-upload-wrapper">'),
+                        $input = $('<input type="text" class="file-upload-input" />'),
+                        $button = $('<button type="button" class="file-upload-button">Select a File</button>');
+
+                    $file.css({
+                        position: 'absolute',
+                        left: '-9999px'
+                    });
+
+                    $wrap.insertAfter($file)
+                      .append($file, $input, (isIE ? $label : $button));
+
+                    // Prevent focus
+                    $file.attr('tabIndex', -1);
+                    $button.attr('tabIndex', -1);
+
+                    $button.click(function () {
+                        $file.focus().click(); 
+                    });
+
+                    $file.change(function () {
+
+                        var files = [], fileArr, filename;
+
+                        if (multipleSupport) {
+                            fileArr = $file[0].files;
+                            for (var i = 0, len = fileArr.length; i < len; i++) {
+                                files.push(fileArr[i].name);
+                            }
+                            filename = files.join(', ');
+
+                        } else {
+                            filename = $file.val().split('\\').pop();
+                        }
+
+                        $input.val(filename) 
+                          .attr('title', filename) 
+                          .focus(); 
+
+                    });
+
+                    $input.on({
+                        blur: function () { $file.trigger('blur'); },
+                        keydown: function (e) {
+                            if (e.which === 13) { // Enter
+                                if (!isIE) { $file.trigger('click'); }
+                            } else if (e.which === 8 || e.which === 46) { 
+                                $file.replaceWith($file = $file.clone(true));
+                                $file.trigger('change');
+                                $input.val('');
+                            } else if (e.which === 9) { // TAB
+                                return;
+                            } else { // All other keys
+                                return false;
+                            }
+                        }
+                    });
+
+                });
+
+            };
+
+        }(jQuery));
+
+        $('input[type=file]').customFile();
     </script>
 </body>
 </html>
