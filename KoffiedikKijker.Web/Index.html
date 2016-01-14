@@ -52,8 +52,8 @@
         <h1>Koffiedikkijker</h1>
         <h2>De toekomst staat in je koffie</h2>
         <ol>
-            <li>drink je koffie</li>
-            <li>maak een foto van jou residu</li>
+            <li>Drink je koffie</li>
+            <li>Maak een foto van jou residu</li>
             <li>Zie je toekomst en verdien prijzen</li>
         </ol>
         <input type="file" capture="camera" accept="image/*" id="takePictureField">
@@ -83,7 +83,7 @@
             $("#yourimage").attr("src", URL.createObjectURL(event.target.files[0]));
             $(".input").hide();
             $(".loader").show();
-            setTimeout(loadResultPage(), 2000);
+            setTimeout(loadResultPage, 6000);
         }
 	}
 

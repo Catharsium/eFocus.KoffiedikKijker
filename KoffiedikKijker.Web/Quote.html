@@ -3,7 +3,9 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Quote</title>
+
+    <script type="text/javascript" charset="utf-8" src="scripts/jquery-2.2.0.min.js"></script>
 </head>
 <body>
     <style>
@@ -81,8 +83,51 @@
         <!--<img class="logo" src="logo.svg" />-->
     </header>
     <div class="content">
-        “Even bad coffee is better than no coffee at all.”
-        <strong>― David Lynch</strong>
+        <p>
+            “Even bad coffee is better than no coffee at all.”
+            <strong>― David Lynch</strong>
+        </p>
+        <p>
+            "Balen! het is vandaag je laatste werkdag, zeg je iedereen even gedag?"
+        </p>
+        <p>
+            "Het gaat bergopwaarts met jou, vanaf morgen gaat je vernieuwde contract in!"
+        </p>
+        <p>
+            "Aerosmith-frontman Steven Tyler biechtte op dat hij tijdens zijn jaren als junkie gigantische bergen drugs heeft genuttigd. Hij was eraan gewend en z'n bandmaatjes deden het ook, dus Steven vond het allemaal best, maar achteraf gezien is het vrij bizar. Denk eens terug aan wat je vijf jaar geleden aan het doen was en vraag je deze week af of je echt van je fouten hebt geleerd."
+        </p>
+        <p>
+            "Een rijke Schotse edelman kreeg van een vriend een zak wiet cadeau. De kwaliteit was echter onder de maat, dus belde hij de politie om te klagen. Die schreef meteen een boete uit voor drugsbezit. Kijk deze week uit bij wie je precies aan de bel trekt, als je niet nog verder in de problemen wil komen."
+        </p>
+        <p>
+            "Mensen die voor een Oscar genomineerd waren, maakten natuurlijk kans op het meest felbegeerde beeldje in de filmwereld. Maar of ze de award nou mee naar huis nemen of niet, iedere kanshebber ontvangt sowieso een propvolle goodie bag die veel meer geld waard is dan de hoofdprijs. Een troostprijs hoeft niet altijd een afgang hoeft te zijn. Wees blij met wat je krijgt."
+        </p>
+        <p>
+            "het einde van een sprint komt pas in zicht wanneer je begint"
+        </p>
+        <p>
+            "innoveren is net zo moeilijk als creeren, durf anders te zijn"
+        </p>
+        <p>
+            "doe je gordijn open om te zien wat voor weer het is"
+        </p>
+        <p>
+            "Je bent zo helder als koffiedik kijken."
+        </p>
+        <p>
+            "Neem een kop koffie, het kan zomaar je laatste zijn"
+        </p>
+        <p>
+            "Wanneer je baas je koffie aanbiedt, zeg dan ja. Je weet nooit welke bijbedoelingen hij heeft"
+        </p>
+        <p>
+            Drink koffie niet alleen voor de cafeïne
+            Ja, er zit cafeïne in het zwarte goud, maar dat zit evengoed in frisdrank of energiedrankjes. Koffie drink je niet alleen voor een oppepper, maar ook om te genieten van het brede smaakpalet, waarin het kleinste verschil veroorzaakt is door een andere samenstelling, kweekhoogte of bodem.
+        </p>
+        <p>
+            Warm je koffie niet op
+            Na ongeveer twintig minuten wordt koffie zurig. Daarom moet je een kopje koffie niet te lang laten staan en al helemaal niet opwarmen. Opgewarmde koffie is simpelweg niet lekker en bovendien is de koffieprijs dusdanig dat het niet nodig is om koffie op te warmen. Het kan wel handig zijn om de hoeveelheid koffie die je zet te beperken tot dat wat je nodig hebt. Dan heb je ook niet de mogelijkheid om de koffie op te warmen.
+        </p>
     </div>
     <span class="minimum">
         0
@@ -96,5 +141,21 @@
     <span class=" maximum">
         60
     </span>
+    
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        $(document).ready(function () {
+            var random = Math.floor(Math.random() * $('.content p').length);
+            var querystring = getParameterByName('index');
+            if (querystring) random = querystring;
+            $('.content p').hide().eq(random).show();
+        });
+    </script>
 </body>
 </html>
