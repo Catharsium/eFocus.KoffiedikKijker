@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <style>
+        header {
+        }
+
+        .content {
+            height: 80vh;
+            width: 80vw;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+        }
+
+        .meter {
+            width: 90vw;
+            background: #ccc;
+            height: 5%;
+            bottom: 5%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .minimum, .maximum {
+            position: absolute;
+            bottom: 5.6%;
+            left: 6vw;
+            z-index: 1;
+        }
+
+        .maximum {
+            left: auto;
+            right: 6vw;
+        }
+
+        .meter .full {
+            background: red;
+            width: 69%;
+            height: 100%;
+            display: block;
+        }
+
+        .more-info {
+            background: aqua;
+            border-radius: 50%;
+            display: block;
+            width: 28px;
+            height: 5%;
+            position: absolute;
+            bottom: 5%;
+            right: 2%;
+        }
+
+        @media (max-width: 1200px) {
+            .more-info {
+                bottom: 13%;
+                right: 5vw;
+            }
+        }
+
+        .more-info span {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    </style>
+    <header>
+        <!--<img class="logo" src="logo.svg" />-->
+    </header>
+    <div class="content">
+        “Even bad coffee is better than no coffee at all.”
+        <strong>― David Lynch</strong>
+    </div>
+    <span class="minimum">
+        0
+    </span>
+    <div class="meter-container">
+        <div class="meter">
+            <span class="full"></span>
+        </div>
+        <a class="more-info" href=""><span>?</span></a>
+    </div>
+    <span class=" maximum">
+        60
+    </span>
+</body>
+</html>
