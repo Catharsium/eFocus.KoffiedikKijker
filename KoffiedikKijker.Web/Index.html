@@ -9,8 +9,14 @@
 
     <style>
 
+        @font-face {
+          font-family: 'MarselisSlabWeb';
+          src:  url('font/MarselisSlabWeb.woff') format('woff');
+        }
+
         body {
             margin: 0;
+            font-family: 'MarselisSlabWeb', sans-serif;
         }
 
         header {
@@ -22,6 +28,16 @@
             height: 100%;
             margin: 0 auto;
             display: block;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        ol {
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
         }
 
         #yourimage {
