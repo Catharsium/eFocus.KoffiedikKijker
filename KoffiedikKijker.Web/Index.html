@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>ColorThief Demo</title>
+
+    <script type="text/javascript" charset="utf-8" src="scripts/jquery-2.2.0.min.js"></script>
+
+    <style>
+        #yourimage {
+            width: 100%;
+        }
+
+        #swatches {
+            width: 100%;
+            height: 50px;
+        }
+
+        .swatch {
+            width: 18%;
+            height: 50px;
+            border-style: solid;
+            border-width: thin;
+            float: left;
+            margin-right: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" capture="camera" accept="image/*" id="takePictureField">
+
+    <img id="yourimage">
+
+    <script>
+	var desiredWidth;
+    $(document).ready(function() {
+        console.log('onReady');
+		$("#takePictureField").on("change",gotPic);
+		desiredWidth = window.innerWidth;
+
+        if(!("url" in window) && ("webkitURL" in window)) {
+            window.URL = window.webkitURL;
+        }
+
+	});
+
+	function gotPic(event) {
+        if(event.target.files.length == 1 &&
+           event.target.files[0].type.indexOf("image/") == 0) {
+            $("#yourimage").attr("src",URL.createObjectURL(event.target.files[0]));
+        }
+	}
+    </script>
+</body>
+</html>
