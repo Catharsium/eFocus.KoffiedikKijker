@@ -67,6 +67,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\Logo.svg" />
     <Content Include="Quote.html" />
     <Content Include="Stream.html" />
     <Content Include="Index.html" />
