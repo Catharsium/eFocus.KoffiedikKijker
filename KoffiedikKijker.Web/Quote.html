@@ -9,7 +9,27 @@
 </head>
 <body>
     <style>
+        @font-face {
+            font-family: 'MarselisSlabWeb';
+            font-style: normal;
+            font-weight: 400;
+            src:  url('font/MarselisSlabWeb.woff') format('woff');
+        }
+
+        body {
+            margin: 0;
+            font-family: 'MarselisSlabWeb', sans-serif;
+        }
+
         header {
+            height: 10vh;
+            padding: 0.5rem;
+        }
+
+        header img {
+            height: 100%;
+            margin: 0 auto;
+            display: block;
         }
 
         .content {
@@ -80,7 +100,7 @@
         }
     </style>
     <header>
-        <!--<img class="logo" src="logo.svg" />-->
+        <img src="img/logo.svg" />
     </header>
     <div class="content">
         <p>
