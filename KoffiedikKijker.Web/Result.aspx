@@ -45,7 +45,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            font-size: 2rem;
+        }
+
+        @media (max-width: 400px) {
+            .content {
+                font-size: 3rem;
+            }
         }
 
         .meter {
