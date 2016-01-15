@@ -35,32 +35,42 @@
             display: block;
         }
 
+        .image-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        #image {
+            width: 80rem;
+            margin: 2rem;
+        }
+
+        .scan-text {
+            font-size: 2.5rem;
+        }
+
         .content {
-            height: 80vh;
-            width: 80vw;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
+            font-size: 3.5rem;
+            margin: 2rem;
         }
 
         .meter {
             width: 90vw; 
             background: #eee;
-            height: 5%;
-            bottom: 5%;
+            height: 2rem;
             position: absolute;
             left: 50%;
+            bottom: 5%;
             transform: translateX(-50%);
         }
 
         .minimum, .maximum {
             position: absolute;
-            bottom: 5.6%;
+            bottom: 5.3%;
             left: 6vw;
             z-index: 1;
             font-size: 1.5rem;
@@ -102,12 +112,20 @@
             transform: translate(-50%, -50%);
             position: absolute;
         }
+
     </style>
     <header>
         <img src="img/logo.svg" />
     </header>
 
-    <asp:Image id="image" runat="server" />
+    <div class="image-wrapper">
+        <asp:Image id="image" runat="server" />
+
+        <p class="scan-text">
+            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:
+        </p>
+    </div>
+    
 
     <asp:Literal ID="output" runat="server" />
 
@@ -159,16 +177,16 @@
         </p>
     </div>
     <span class="minimum">
-        0
+        67
     </span>
     <div class="meter-container">
         <div class="meter">
             <span class="full"></span>
         </div>
-        <a class="more-info" href=""><span>?</span></a>
+        <%--<a class="more-info" href=""><span>?</span></a>--%>
     </div>
     <span class=" maximum">
-        60
+        90
     </span>
     
     <script>

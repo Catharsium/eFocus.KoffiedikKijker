@@ -44,16 +44,15 @@
         ol {
             margin-left: 1rem;
             margin-right: 1rem;
+            margin-bottom: 4rem;
             left: 50%;
             position: absolute;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-            width: 100%;
+            position: relative;
         }
 
         #clockdiv {
-            position: absolute;
-            bottom: 17%;
             text-align: center;
             margin: 1rem;
         }
@@ -109,11 +108,12 @@
             padding: 11px 20px; 
             border: none;
             background-color: #C20C0D; 
-            position: absolute;
+            position: relative;
             bottom: 5%;
             left: 50%;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+            margin-bottom: 2rem;
         }
 
         .file-upload-button:hover {
