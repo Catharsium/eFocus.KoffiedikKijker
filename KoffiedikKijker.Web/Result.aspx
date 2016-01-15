@@ -117,14 +117,12 @@
     <header>
         <img src="img/logo.svg" />
     </header>
-
-    <asp:Literal ID="output" runat="server" Visible="false" />
-
+    
     <div class="image-wrapper">
         <asp:Image id="image" runat="server" />
 
         <p class="scan-text">
-            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:
+            <asp:Literal ID="output" runat="server" Visible="false" />
         </p>
     </div>
     

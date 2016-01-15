@@ -13,15 +13,6 @@ namespace KoffiedikKijker.Web {
     public partial class Result {
         
         /// <summary>
-        /// output control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal output;
-        
-        /// <summary>
         /// image control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace KoffiedikKijker.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image image;
+        
+        /// <summary>
+        /// output control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal output;
         
         /// <summary>
         /// containerContent control.

@@ -17,6 +17,7 @@ namespace KoffiedikKijker.Web
         
         private async Task RunTest()
         {
+            output.Text = "We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:";
             try
             {
                 var client = new VisionServiceClient("bae2f176b113415f81bdca26eccab2e9");
@@ -30,7 +31,7 @@ namespace KoffiedikKijker.Web
                 {
                     var age = face.Age;
                     var gender = face.Gender == "Male" ? "man" : "vrouw";
-                    output.Text = string.Format("<p>Helaas, deze {0} jarige {1} kan (nog) niet worden gekwalificeerd als een leeg kopje koffie.</p>", age, gender);
+                    output.Text = string.Format("Helaas, deze {0} jarige {1} kan (nog) niet worden gekwalificeerd als een leeg kopje koffie.", age, gender);
                     output.Visible = true;
                     containerContent.Visible = false;
                 }
