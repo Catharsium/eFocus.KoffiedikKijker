@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI;
 using Microsoft.ProjectOxford.Vision;
 
@@ -8,19 +11,24 @@ namespace KoffiedikKijker.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            iets();
+            RegisterAsyncTask(new PageAsyncTask(RunTest));
         }
 
-
-        private void iets()
-        {
-            RunTest();
-        }
-
-        private async void RunTest()
+        
+        private async Task RunTest()
         {
             var client = new VisionServiceClient("bae2f176b113415f81bdca26eccab2e9");
-            var result = await client.AnalyzeImageAsync("http://dailycoffeenews.com/wp-content/uploads/2013/02/empty-coffee-mug-300x200.jpeg");
+
+            var fileReq = (HttpWebRequest)WebRequest.Create(Request.QueryString["image"]);
+            var fileResp = (HttpWebResponse)fileReq.GetResponse();
+            var stream = fileResp.GetResponseStream();
+            var result = await client.AnalyzeImageAsync(stream);
+            foreach (var face in result.Faces)
+            {
+                var age = face.Age;
+                var gender = face.Gender;
+                output.Text = string.Format("Leeftijd {0}, geslacht {1}", age, gender);
+            }
         }
     }
 }
