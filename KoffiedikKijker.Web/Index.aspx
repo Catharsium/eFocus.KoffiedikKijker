@@ -49,7 +49,6 @@
             position: absolute;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-            width: 100%;
             position: relative;
         }
 
@@ -114,6 +113,7 @@
             left: 50%;
             -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
+            margin-bottom: 2rem;
         }
 
         .file-upload-button:hover {
