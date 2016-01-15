@@ -60,8 +60,6 @@
 
         .meter-container {
             position: absolute;
-            margin-bottom: 2rem;
-            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
         }
@@ -132,7 +130,6 @@
             <asp:Literal ID="output" runat="server" />
         </p>
     </div>
-    
     
     <asp:PlaceHolder ID="containerContent" runat="server">
     <div class="content">
