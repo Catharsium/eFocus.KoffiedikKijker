@@ -42,7 +42,7 @@
         }
 
         #image {
-            width: 80rem;
+            width: 30%;
             margin: 2rem;
         }
 
@@ -127,7 +127,7 @@
         <asp:Image id="image" runat="server" />
 
         <p class="scan-text">
-            <asp:Literal ID="output" runat="server" Visible="false" />
+            <asp:Literal ID="output" runat="server" />
         </p>
     </div>
     
