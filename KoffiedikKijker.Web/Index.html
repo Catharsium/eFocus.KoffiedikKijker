@@ -46,6 +46,13 @@
             width: 100%;
         }
 
+        #clockdiv {
+            position: absolute;
+            bottom: 17%;
+            text-align: center;
+            margin: 1rem;
+        }
+
         #yourimage {
             width: 100%;
         }
@@ -162,6 +169,7 @@
             <li>Maak een foto van jou residu</li>
             <li>Zie je toekomst en verdien prijzen</li>
         </ol>
+        <div id="clockdiv"></div>
         <div class="custom-file-upload">
             <input type="file" capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple />
         </div>
@@ -173,6 +181,7 @@
 
 
     <script>
+    var deadline = 'January 15 2016 16:59:59 GMT+02:00';
 	var desiredWidth;
     $(document).ready(function() {
         console.log('onReady');
@@ -199,6 +208,34 @@
         function loadResultPage() {
             location.href = "/quote.html";
         };
+
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var timeinterval = setInterval(function () {
+                var t = getTimeRemaining(endtime);
+                clock.innerHTML = 'Scan je koffie binnen: ' + t.hours + ' uur, ' + t.minutes + ' minuten en ' + t.seconds + ' seconden voor dubbele punten!';
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }, 1000);
+        };
+
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        initializeClock('clockdiv', deadline);
 
         (function ($) {
 
