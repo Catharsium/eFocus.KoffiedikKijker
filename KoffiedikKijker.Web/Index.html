@@ -200,16 +200,17 @@
 	function gotPic(event) {
         if(event.target.files.length == 1 &&
            event.target.files[0].type.indexOf("image/") == 0) {
-            $("#yourimage").attr("src", URL.createObjectURL(event.target.files[0]));
+            var imageUrl = URL.createObjectURL(event.target.files[0]);
+            $("#yourimage").attr("src", imageUrl);
             $(".input").hide();
             $(".loader").show();
             $(".scan-line").show();
-            setTimeout(loadResultPage, 6000);
+            setTimeout(function () { loadResultPage(imageUrl) }, 6000);
         }
 	}
 
-        function loadResultPage() {
-            location.href = "/quote.html";
+        function loadResultPage(imageUrl) {
+            location.href = "/quote.html?image=" + imageUrl;
         };
 
         function initializeClock(id, endtime) {
