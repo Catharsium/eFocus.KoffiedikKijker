@@ -118,7 +118,7 @@
         <img src="img/logo.svg" />
     </header>
 
-    <asp:Literal ID="output" runat="server" />
+    <asp:Literal ID="output" runat="server" Visible="false" />
 
     <div class="image-wrapper">
         <asp:Image id="image" runat="server" />
