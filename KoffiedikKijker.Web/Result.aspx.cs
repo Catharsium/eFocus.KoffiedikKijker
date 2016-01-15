@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.UI;
 using Microsoft.ProjectOxford.Vision;
 
 namespace KoffiedikKijker.Web
 {
-    public partial class test : Page
+    public partial class Result : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            image.ImageUrl = Request["image"];
             RegisterAsyncTask(new PageAsyncTask(RunTest));
         }
 
