@@ -118,6 +118,8 @@
         <img src="img/logo.svg" />
     </header>
 
+    <asp:Literal ID="output" runat="server" />
+
     <div class="image-wrapper">
         <asp:Image id="image" runat="server" />
 
@@ -127,7 +129,7 @@
     </div>
     
 
-    <asp:Literal ID="output" runat="server" />
+
     
     <asp:PlaceHolder ID="containerContent" runat="server">
     <div class="content">

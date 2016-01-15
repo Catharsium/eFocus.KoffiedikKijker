@@ -10,7 +10,7 @@ namespace KoffiedikKijker.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            image.ImageUrl = "~/upload/" + Request["image"];
+            image.ImageUrl = "/upload/" + Request["image"];
             RegisterAsyncTask(new PageAsyncTask(RunTest));
         }
 
@@ -21,7 +21,7 @@ namespace KoffiedikKijker.Web
             {
                 var client = new VisionServiceClient("bae2f176b113415f81bdca26eccab2e9");
 
-                var url = Request.Url.Scheme + Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port) + image.ImageUrl;
+                var url = "http://koffiedikkijker.azurewebsites.net" + image.ImageUrl;
                 var fileReq = (HttpWebRequest)WebRequest.Create(url);
                 var fileResp = (HttpWebResponse) fileReq.GetResponse();
                 var stream = fileResp.GetResponseStream();
@@ -29,8 +29,8 @@ namespace KoffiedikKijker.Web
                 foreach (var face in result.Faces)
                 {
                     var age = face.Age;
-                    var gender = face.Gender;
-                    output.Text = string.Format("Leeftijd {0}, geslacht {1}", age, gender);
+                    var gender = face.Gender == "Male" ? "man" : "vrouw";
+                    output.Text = string.Format("<p>Helaas, deze {0} jarige {1} kan (nog) niet worden gekwalificeerd als een leeg kopje koffie.</p>", age, gender);
                     output.Visible = true;
                     containerContent.Visible = false;
                 }

@@ -16,7 +16,7 @@ namespace KoffiedikKijker.Web
             var fileName = string.Empty;
             if (takePictureField.HasFile)
             {
-                fileName = Path.GetFileName(takePictureField.PostedFile.FileName);
+                fileName = Guid.NewGuid() + Path.GetFileName(takePictureField.PostedFile.FileName);
                 takePictureField.PostedFile.SaveAs(Server.MapPath("~/upload/") + fileName);
             }
 
