@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.IO;
+using System.Threading;
 
 namespace KoffiedikKijker.Web
 {
@@ -11,7 +8,20 @@ namespace KoffiedikKijker.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+
+        protected void OnSubmit(object sender, EventArgs e)
+        {
+            var fileName = string.Empty;
+            if (takePictureField.HasFile)
+            {
+                fileName = Guid.NewGuid() + Path.GetFileName(takePictureField.PostedFile.FileName);
+                takePictureField.PostedFile.SaveAs(Server.MapPath("~/upload/") + fileName);
+            }
+
+            Thread.Sleep(6000);
+            Response.Redirect("/Result.aspx?image=" + fileName);
         }
     }
 }

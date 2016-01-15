@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KoffiedikKijker.Web.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="KoffiedikKijker.Web.Index" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 <html>
@@ -149,6 +149,9 @@
             animation: scan 3s linear infinite;
         }
 
+        .hidden {
+            display: none;
+        }
 
         @keyframes scale {
             0% { transform: scale(1) translate(-50%, -50%); }
@@ -166,10 +169,14 @@
 </head>
 
 <body>
+    <form id="form" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
     <div class="input">
         <header>
             <img src="img/logo.svg" />
-        </header>
+        </header>            
+        <asp:Button ID="button" runat="server" OnClick="OnSubmit" ClientIDMode="Static" CssClass="hidden" />
         <h1>Koffiedikkijker</h1>
         <h2>De toekomst staat in je koffie</h2>
         <ol>
@@ -178,7 +185,8 @@
             <li>Zie je toekomst en verdien prijzen</li>
         </ol>
         <div class="custom-file-upload">
-            <input type="file" capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple />
+            <asp:FileUpload capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple runat="server" ClientIDMode="Static" />
+            <%--<input type="file" capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple runat="server" />--%>
         </div>
         <div id="clockdiv"></div>
     </div>
@@ -199,7 +207,6 @@
         if(!("url" in window) && ("webkitURL" in window)) {
             window.URL = window.webkitURL;
         }
-
 	});
 
 	function gotPic(event) {
@@ -210,12 +217,14 @@
             $(".input").hide();
             $(".loader").show();
             $(".scan-line").show();
-            setTimeout(function () { loadResultPage(imageUrl) }, 6000);
+            __doPostBack('button', imageUrl);
+           // setTimeout(function () { loadResultPage(imageUrl) }, 6000);
         }
 	}
 
-        function loadResultPage(imageUrl) {
-            location.href = "/Result.aspx?image=" + imageUrl;
+	function loadResultPage(imageUrl) {
+
+           // location.href = "/Result.aspx?image=" + imageUrl;
         };
 
         function initializeClock(id, endtime) {
@@ -322,5 +331,6 @@
 
         $('input[type=file]').customFile();
     </script>
+    </form>
 </body>
 </html>

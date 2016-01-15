@@ -5,7 +5,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Quote</title>
+    <title>DE Koffiedikkijker - Uw persoonlijke horoscoop</title>
 
     <script type="text/javascript" charset="utf-8" src="scripts/jquery-2.2.0.min.js"></script>
 </head>
@@ -124,18 +124,19 @@
     <header>
         <img src="img/logo.svg" />
     </header>
-
+    
     <div class="image-wrapper">
         <asp:Image id="image" runat="server" />
 
         <p class="scan-text">
-            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomstbeeld:
+            <asp:Literal ID="output" runat="server" Visible="false" />
         </p>
     </div>
     
 
-    <asp:Literal ID="output" runat="server" />
 
+    
+    <asp:PlaceHolder ID="containerContent" runat="server">
     <div class="content">
         <p>
             “Even bad coffee is better than no coffee at all.”
@@ -195,8 +196,8 @@
             90
         </span>
     </div>
-    
-    
+     </asp:PlaceHolder>
+  
     <script>
         function getParameterByName(name) {
             name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
