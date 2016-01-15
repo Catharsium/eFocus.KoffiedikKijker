@@ -70,12 +70,13 @@
             height: 2rem;
             position: relative;
             left: 50%;
+            bottom: 1rem;
             transform: translateX(-50%);
         }
 
         .minimum, .maximum {
             position: absolute;
-            bottom: 0.2rem;
+            bottom: 1.2rem;
             left: 6vw;
             z-index: 1;
             font-size: 1.5rem;
