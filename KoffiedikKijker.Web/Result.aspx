@@ -26,6 +26,7 @@
         header {
             height: 10vh;
             padding: 0.5rem;
+            box-shadow: 0 0 2px rgba(0,0,0,.5);
         }
 
         header img {
@@ -44,12 +45,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2em;
+            font-size: 3rem;
         }
 
         .meter {
             width: 90vw; 
-            background: #ccc;
+            background: #eee;
             height: 5%;
             bottom: 5%;
             position: absolute;
@@ -62,6 +63,7 @@
             bottom: 5.6%;
             left: 6vw;
             z-index: 1;
+            font-size: 1.5rem;
         }
 
         .maximum {
@@ -70,7 +72,7 @@
         }
 
         .meter .full {
-            background: red;
+            background: #C20C0D;
             width: 69%;
             height: 100%;
             display: block;
@@ -104,9 +106,11 @@
     <header>
         <img src="img/logo.svg" />
     </header>
-       <asp:Image id="image" runat="server" />
 
-        <asp:Literal ID="output" runat="server" />
+    <asp:Image id="image" runat="server" />
+
+    <asp:Literal ID="output" runat="server" />
+
     <div class="content">
         <p>
             “Even bad coffee is better than no coffee at all.”

@@ -11,7 +11,7 @@ namespace KoffiedikKijker.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             image.ImageUrl = Request["image"];
-            RegisterAsyncTask(new PageAsyncTask(RunTest));
+         //   RegisterAsyncTask(new PageAsyncTask(RunTest));
         }
 
         
