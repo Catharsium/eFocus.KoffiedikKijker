@@ -133,56 +133,23 @@
         </p>
     </div>
     
-
-
     
     <asp:PlaceHolder ID="containerContent" runat="server">
     <div class="content">
-        <p>
-            “Even bad coffee is better than no coffee at all.”
-            <strong>― David Lynch</strong>
-        </p>
-        <p>
-            "Balen! het is vandaag je laatste werkdag, zeg je iedereen even gedag?"
-        </p>
-        <p>
-            "Het gaat bergopwaarts met jou, vanaf morgen gaat je vernieuwde contract in!"
-        </p>
-        <p>
-            "Aerosmith-frontman Steven Tyler biechtte op dat hij tijdens zijn jaren als junkie gigantische bergen drugs heeft genuttigd. Hij was eraan gewend en z'n bandmaatjes deden het ook, dus Steven vond het allemaal best, maar achteraf gezien is het vrij bizar. Denk eens terug aan wat je vijf jaar geleden aan het doen was en vraag je deze week af of je echt van je fouten hebt geleerd."
-        </p>
-        <p>
-            "Een rijke Schotse edelman kreeg van een vriend een zak wiet cadeau. De kwaliteit was echter onder de maat, dus belde hij de politie om te klagen. Die schreef meteen een boete uit voor drugsbezit. Kijk deze week uit bij wie je precies aan de bel trekt, als je niet nog verder in de problemen wil komen."
-        </p>
-        <p>
-            "Mensen die voor een Oscar genomineerd waren, maakten natuurlijk kans op het meest felbegeerde beeldje in de filmwereld. Maar of ze de award nou mee naar huis nemen of niet, iedere kanshebber ontvangt sowieso een propvolle goodie bag die veel meer geld waard is dan de hoofdprijs. Een troostprijs hoeft niet altijd een afgang hoeft te zijn. Wees blij met wat je krijgt."
-        </p>
-        <p>
-            "het einde van een sprint komt pas in zicht wanneer je begint"
-        </p>
-        <p>
-            "innoveren is net zo moeilijk als creeren, durf anders te zijn"
-        </p>
-        <p>
-            "doe je gordijn open om te zien wat voor weer het is"
-        </p>
-        <p>
-            "Je bent zo helder als koffiedik kijken."
-        </p>
-        <p>
-            "Neem een kop koffie, het kan zomaar je laatste zijn"
-        </p>
-        <p>
-            "Wanneer je baas je koffie aanbiedt, zeg dan ja. Je weet nooit welke bijbedoelingen hij heeft"
-        </p>
-        <p>
-            Drink koffie niet alleen voor de cafeïne
-            Ja, er zit cafeïne in het zwarte goud, maar dat zit evengoed in frisdrank of energiedrankjes. Koffie drink je niet alleen voor een oppepper, maar ook om te genieten van het brede smaakpalet, waarin het kleinste verschil veroorzaakt is door een andere samenstelling, kweekhoogte of bodem.
-        </p>
-        <p>
-            Warm je koffie niet op
-            Na ongeveer twintig minuten wordt koffie zurig. Daarom moet je een kopje koffie niet te lang laten staan en al helemaal niet opwarmen. Opgewarmde koffie is simpelweg niet lekker en bovendien is de koffieprijs dusdanig dat het niet nodig is om koffie op te warmen. Het kan wel handig zijn om de hoeveelheid koffie die je zet te beperken tot dat wat je nodig hebt. Dan heb je ook niet de mogelijkheid om de koffie op te warmen.
-        </p>
+        <p>"Balen! het is vandaag je laatste werkdag, zeg je iedereen even gedag?"</p>
+        <p>"Het gaat bergopwaarts met jou, vanaf morgen gaat je verbeterde contract in!"</p>
+        <p>"het einde van een sprint komt pas echt in zicht wanneer je ermee begint, zorg dat je volgende week wel begint."</p>
+        <p>"Neem een kop koffie, het kan vandaag zomaar je laatste zijn."</p>
+        <p>"innoveren is net zo moeilijk als creeren, durf vandaag anders te zijn."</p>
+        <p>"De afgelopen twee dagen hebben veel van je creativiteit geëist, dit zal effect hebben op je weekend. Doe daarom even rustig aan."</p>
+        <p>"Deze week heb je geen goede indruk op je collega's achtergelaten, maak je het vanmiddag goed in de bar?"</p>
+        <p>"Deze week stond voor jou in het teken van goede beslissingen. Let op dat je niet te enthousiast wordt. Wees waakzaam."</p>
+        <p>"Net als het weer was je deze week een beetje somber. Dit weekend gaat de zon schijnen, ook voor jou! Leuke dingen staan te gebeuren."</p>
+        <p>"De afgelopen periode heb je veel uitgaven gehad. Let de weekend op je portemonnee, een financiële tegenvaller ligt op de loer."</p>
+        <p>"Pas op als je de weg oversteekt, een ongelukje kan zowel van links als van rechts komen."</p>
+        <p>"Vandaag zal je een goede keuze maken. Maar let op, dat zijn ze niet allemaal!"</p>
+        <p>"Doe vandaag niet te overhaast, drink een kop koffie en pak je rust. Je kan toch niet sneller werken dan de wereld om je heen."</p>
+        <p>"Pieter van den Hoogenband drinkt altijd een kop koffie voordat hij aan zijn finale slag begint, ook jij moet je vasthouden aan de rituelen die je succes geven."</p>
     </div>
     <div class="meter-container">
         <span class="minimum">
