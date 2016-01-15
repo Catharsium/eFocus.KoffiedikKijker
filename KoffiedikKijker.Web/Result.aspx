@@ -35,20 +35,26 @@
             display: block;
         }
 
+        .image-wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
         #image {
-            width: 20rem;
+            width: 80rem;
             margin: 2rem;
         }
 
-        .scan-test {
-            margin: 1rem;
+        .scan-text {
+            font-size: 2.5rem;
         }
 
         .content {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 2rem;
+            font-size: 3.5rem;
             margin: 2rem;
         }
 
@@ -112,11 +118,14 @@
         <img src="img/logo.svg" />
     </header>
 
-    <asp:Image id="image" runat="server" />
+    <div class="image-wrapper">
+        <asp:Image id="image" runat="server" />
 
-    <p class="scan-text">
-        We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:
-    </p>
+        <p class="scan-text">
+            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:
+        </p>
+    </div>
+    
 
     <asp:Literal ID="output" runat="server" />
 
