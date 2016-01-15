@@ -35,8 +35,10 @@
         }
 
         ol {
+            padding: 0;
             left: 50%;
             position: absolute;
+            -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
         }
 
@@ -71,48 +73,76 @@
             width: auto;
             font-size: 16px;
             margin-top: 30px;
-            //border: 1px solid #ccc;
-            label {
-                display: block;
-                margin-bottom: 5px;
-            }
+            
         }
 
-        .file-upload-wrapper {
-            position: relative; 
+        .custom-file-upload label {
+            display: block;
             margin-bottom: 5px;
-            //border: 1px solid #ccc;
         }
+
         .file-upload-input {
-            width: $file-upload-size;
-            color: #fff;
-            font-size: 16px;
-            padding: 11px 17px; 
-            border: none;
-            background-color: $file-upload-color; 
-            @include transition(all 0.2s ease-in); 
-            float: left; /* IE 9 Fix */
-            &:hover, &:focus { 
-                background-color: darken($file-upload-color, 5);
-                outline: none; 
-            }
+            display: none;
         }
+
         .file-upload-button {
             cursor: pointer; 
             display: inline-block; 
             color: #fff;
             font-size: 16px;
-            text-transform: uppercase;
             padding: 11px 20px; 
             border: none;
-            margin-left: -1px;  
-            background-color: darken($file-upload-color, 10); 
-            float: left; /* IE 9 Fix */
-            @include transition(all 0.2s ease-in);
-            &:hover {
-                background-color: darken($file-upload-color, 20);
-            }
+            background-color: #C20C0D; 
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
         }
+
+        .file-upload-button:hover {
+            background-color: darkred;
+        }
+
+        .loader, #yourimage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .loader {
+            z-index: 2;
+            animation: scale 1.5s infinite;
+            color: white;
+            text-shadow: 0px 4px 6px #000;
+        }
+
+        .scan-line {
+            height: 2px;
+            width: 100%;
+            background: #C20C0D;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            border-color: #C20C0D;
+            animation: scan 3s linear infinite;
+        }
+
+
+        @keyframes scale {
+            0% { transform: scale(1) translate(-50%, -50%); }
+            50% { transform: scale(1.2) translate(-40%, -40%); }
+            100% { transform: scale(1) translate(-50%, -50%); }
+        }
+
+        @keyframes scan {
+            0% { top: 0; box-shadow: 0 -7px 13px #C20C0D;}
+            50% { top: 99%; box-shadow: 0 0 13px #C20C0D;}
+            100% { top: 0; box-shadow: 0 7px 13px #C20C0D;}
+        }
+
     </style>
 </head>
 
@@ -134,7 +164,7 @@
     </div>
 
     <div class="loader" style="display: none;"><h2>Scanning...</h2></div>
-
+    <span class="scan-line" style="display: none;"></span>
     <img id="yourimage">
 
 
@@ -157,6 +187,7 @@
             $("#yourimage").attr("src", URL.createObjectURL(event.target.files[0]));
             $(".input").hide();
             $(".loader").show();
+            $(".scan-line").show();
             setTimeout(loadResultPage, 6000);
         }
 	}
@@ -177,7 +208,7 @@
                     var $file = $(this).addClass('custom-file-upload-hidden'),
                         $wrap = $('<div class="file-upload-wrapper">'),
                         $input = $('<input type="text" class="file-upload-input" />'),
-                        $button = $('<button type="button" class="file-upload-button">Select a File</button>');
+                        $button = $('<button type="button" class="file-upload-button">Scan je koffie</button>');
 
                     $file.css({
                         position: 'absolute',
