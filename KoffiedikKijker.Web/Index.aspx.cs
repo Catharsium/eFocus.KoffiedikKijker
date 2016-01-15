@@ -20,7 +20,7 @@ namespace KoffiedikKijker.Web
                 takePictureField.PostedFile.SaveAs(Server.MapPath("~/upload/") + fileName);
             }
 
-            Thread.Sleep(6000);
+            Thread.Sleep(4000);
             Response.Redirect("/Result.aspx?image=" + fileName);
         }
     }
