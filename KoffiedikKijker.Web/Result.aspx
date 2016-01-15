@@ -128,7 +128,8 @@
     
 
     <asp:Literal ID="output" runat="server" />
-
+    
+    <asp:PlaceHolder ID="containerContent" runat="server">
     <div class="content">
         <p>
             “Even bad coffee is better than no coffee at all.”
@@ -188,6 +189,7 @@
     <span class=" maximum">
         90
     </span>
+        </asp:PlaceHolder>
     
     <script>
         function getParameterByName(name) {

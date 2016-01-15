@@ -10,24 +10,34 @@ namespace KoffiedikKijker.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            image.ImageUrl = Request["image"];
-         //   RegisterAsyncTask(new PageAsyncTask(RunTest));
+            image.ImageUrl = "~/upload/" + Request["image"];
+            RegisterAsyncTask(new PageAsyncTask(RunTest));
         }
 
         
         private async Task RunTest()
         {
-            var client = new VisionServiceClient("bae2f176b113415f81bdca26eccab2e9");
-
-            var fileReq = (HttpWebRequest)WebRequest.Create(Request.QueryString["image"]);
-            var fileResp = (HttpWebResponse)fileReq.GetResponse();
-            var stream = fileResp.GetResponseStream();
-            var result = await client.AnalyzeImageAsync(stream);
-            foreach (var face in result.Faces)
+            try
             {
-                var age = face.Age;
-                var gender = face.Gender;
-                output.Text = string.Format("Leeftijd {0}, geslacht {1}", age, gender);
+                var client = new VisionServiceClient("bae2f176b113415f81bdca26eccab2e9");
+
+                var url = Request.Url.Scheme + Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port) + image.ImageUrl;
+                var fileReq = (HttpWebRequest)WebRequest.Create(url);
+                var fileResp = (HttpWebResponse) fileReq.GetResponse();
+                var stream = fileResp.GetResponseStream();
+                var result = await client.AnalyzeImageAsync(stream);
+                foreach (var face in result.Faces)
+                {
+                    var age = face.Age;
+                    var gender = face.Gender;
+                    output.Text = string.Format("Leeftijd {0}, geslacht {1}", age, gender);
+                    output.Visible = true;
+                    containerContent.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                
             }
         }
     }
