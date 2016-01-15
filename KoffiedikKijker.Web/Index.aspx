@@ -44,7 +44,7 @@
         ol {
             margin-left: 1rem;
             margin-right: 1rem;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             left: 50%;
             position: absolute;
             -webkit-transform: translateX(-50%);
@@ -55,6 +55,9 @@
         #clockdiv {
             text-align: center;
             margin: 1rem;
+            padding: 1rem;
+            background: #f7f2e8;
+            color: #ca975d;
         }
 
         #yourimage {
@@ -174,10 +177,10 @@
             <li>Maak een foto van jou residu</li>
             <li>Zie je toekomst en verdien prijzen</li>
         </ol>
-        <div id="clockdiv"></div>
         <div class="custom-file-upload">
             <input type="file" capture="camera" accept="image/*" id="takePictureField" name="myfiles[]" multiple />
         </div>
+        <div id="clockdiv"></div>
     </div>
 
     <div class="loader" style="display: none;"><h2>Scanning...</h2></div>

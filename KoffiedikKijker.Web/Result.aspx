@@ -58,19 +58,26 @@
             margin: 2rem;
         }
 
+        .meter-container {
+            position: absolute;
+            margin-bottom: 2rem;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .meter {
             width: 90vw; 
             background: #eee;
             height: 2rem;
-            position: absolute;
+            position: relative;
             left: 50%;
-            bottom: 5%;
             transform: translateX(-50%);
         }
 
         .minimum, .maximum {
             position: absolute;
-            bottom: 5.3%;
+            bottom: 0.2rem;
             left: 6vw;
             z-index: 1;
             font-size: 1.5rem;
@@ -122,7 +129,7 @@
         <asp:Image id="image" runat="server" />
 
         <p class="scan-text">
-            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomst beeld:
+            We hebben je residu kunnen scannen, zie hieronder jouw persoonlijke toekomstbeeld:
         </p>
     </div>
     
@@ -176,18 +183,19 @@
             Na ongeveer twintig minuten wordt koffie zurig. Daarom moet je een kopje koffie niet te lang laten staan en al helemaal niet opwarmen. Opgewarmde koffie is simpelweg niet lekker en bovendien is de koffieprijs dusdanig dat het niet nodig is om koffie op te warmen. Het kan wel handig zijn om de hoeveelheid koffie die je zet te beperken tot dat wat je nodig hebt. Dan heb je ook niet de mogelijkheid om de koffie op te warmen.
         </p>
     </div>
-    <span class="minimum">
-        67
-    </span>
     <div class="meter-container">
+        <span class="minimum">
+            67
+        </span>
         <div class="meter">
             <span class="full"></span>
         </div>
         <%--<a class="more-info" href=""><span>?</span></a>--%>
+        <span class=" maximum">
+            90
+        </span>
     </div>
-    <span class=" maximum">
-        90
-    </span>
+    
     
     <script>
         function getParameterByName(name) {
